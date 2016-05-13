@@ -128,5 +128,10 @@ namespace ToastTest
             myTimer.Interval = (int) samplingRateNumBox.Value;
             toaster.SetSamplingRate((int)samplingRateNumBox.Value / 2);
         }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            toaster.Disconnect();
+        }
     }
 }
