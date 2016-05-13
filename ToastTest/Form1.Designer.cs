@@ -32,6 +32,12 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tempControlGroupbox = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.setTempLabel = new System.Windows.Forms.Label();
+            this.actualTempDisplay = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.setTempDisplay = new System.Windows.Forms.TextBox();
             this.degreesLabel = new System.Windows.Forms.Label();
             this.tempNumBox = new System.Windows.Forms.NumericUpDown();
             this.setTempButton = new System.Windows.Forms.Button();
@@ -48,6 +54,8 @@
             this.refreshButton = new System.Windows.Forms.PictureBox();
             this.connectButton = new System.Windows.Forms.Button();
             this.comPortList = new System.Windows.Forms.ListBox();
+            this.plotGroupbox = new System.Windows.Forms.GroupBox();
+            this.clearPlotButton = new System.Windows.Forms.Button();
             this.tempControlGroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tempNumBox)).BeginInit();
             this.pidControlGroupbox.SuspendLayout();
@@ -57,24 +65,83 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.refreshButton)).BeginInit();
+            this.plotGroupbox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tempControlGroupbox
             // 
+            this.tempControlGroupbox.Controls.Add(this.label3);
+            this.tempControlGroupbox.Controls.Add(this.setTempLabel);
+            this.tempControlGroupbox.Controls.Add(this.actualTempDisplay);
+            this.tempControlGroupbox.Controls.Add(this.label2);
+            this.tempControlGroupbox.Controls.Add(this.label1);
+            this.tempControlGroupbox.Controls.Add(this.setTempDisplay);
             this.tempControlGroupbox.Controls.Add(this.degreesLabel);
             this.tempControlGroupbox.Controls.Add(this.tempNumBox);
             this.tempControlGroupbox.Controls.Add(this.setTempButton);
             this.tempControlGroupbox.Location = new System.Drawing.Point(12, 12);
             this.tempControlGroupbox.Name = "tempControlGroupbox";
-            this.tempControlGroupbox.Size = new System.Drawing.Size(104, 79);
+            this.tempControlGroupbox.Size = new System.Drawing.Size(104, 91);
             this.tempControlGroupbox.TabIndex = 0;
             this.tempControlGroupbox.TabStop = false;
             this.tempControlGroupbox.Text = "Temperature";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 71);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Actual:";
+            // 
+            // setTempLabel
+            // 
+            this.setTempLabel.AutoSize = true;
+            this.setTempLabel.Location = new System.Drawing.Point(14, 49);
+            this.setTempLabel.Name = "setTempLabel";
+            this.setTempLabel.Size = new System.Drawing.Size(26, 13);
+            this.setTempLabel.TabIndex = 7;
+            this.setTempLabel.Text = "Set:";
+            // 
+            // actualTempDisplay
+            // 
+            this.actualTempDisplay.Enabled = false;
+            this.actualTempDisplay.Location = new System.Drawing.Point(47, 68);
+            this.actualTempDisplay.Name = "actualTempDisplay";
+            this.actualTempDisplay.Size = new System.Drawing.Size(24, 20);
+            this.actualTempDisplay.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(77, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(18, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "°C";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(77, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(18, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "°C";
+            // 
+            // setTempDisplay
+            // 
+            this.setTempDisplay.Enabled = false;
+            this.setTempDisplay.Location = new System.Drawing.Point(47, 46);
+            this.setTempDisplay.Name = "setTempDisplay";
+            this.setTempDisplay.Size = new System.Drawing.Size(24, 20);
+            this.setTempDisplay.TabIndex = 3;
+            // 
             // degreesLabel
             // 
             this.degreesLabel.AutoSize = true;
-            this.degreesLabel.Location = new System.Drawing.Point(58, 22);
+            this.degreesLabel.Location = new System.Drawing.Point(50, 22);
             this.degreesLabel.Name = "degreesLabel";
             this.degreesLabel.Size = new System.Drawing.Size(18, 13);
             this.degreesLabel.TabIndex = 2;
@@ -90,9 +157,9 @@
             // 
             // setTempButton
             // 
-            this.setTempButton.Location = new System.Drawing.Point(9, 46);
+            this.setTempButton.Location = new System.Drawing.Point(69, 17);
             this.setTempButton.Name = "setTempButton";
-            this.setTempButton.Size = new System.Drawing.Size(43, 23);
+            this.setTempButton.Size = new System.Drawing.Size(31, 23);
             this.setTempButton.TabIndex = 0;
             this.setTempButton.Text = "Set";
             this.setTempButton.UseVisualStyleBackColor = true;
@@ -107,7 +174,7 @@
             this.pidControlGroupbox.Controls.Add(this.kiNumBox);
             this.pidControlGroupbox.Controls.Add(this.kpNumBox);
             this.pidControlGroupbox.Controls.Add(this.setPidButton);
-            this.pidControlGroupbox.Location = new System.Drawing.Point(12, 97);
+            this.pidControlGroupbox.Location = new System.Drawing.Point(12, 106);
             this.pidControlGroupbox.Name = "pidControlGroupbox";
             this.pidControlGroupbox.Size = new System.Drawing.Size(104, 121);
             this.pidControlGroupbox.TabIndex = 1;
@@ -203,7 +270,7 @@
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(436, 354);
+            this.chart1.Size = new System.Drawing.Size(698, 357);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
             // 
@@ -212,9 +279,9 @@
             this.groupBox1.Controls.Add(this.refreshButton);
             this.groupBox1.Controls.Add(this.connectButton);
             this.groupBox1.Controls.Add(this.comPortList);
-            this.groupBox1.Location = new System.Drawing.Point(12, 224);
+            this.groupBox1.Location = new System.Drawing.Point(12, 233);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(104, 141);
+            this.groupBox1.Size = new System.Drawing.Size(104, 136);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "COM Port";
@@ -248,11 +315,33 @@
             this.comPortList.Size = new System.Drawing.Size(77, 69);
             this.comPortList.TabIndex = 0;
             // 
+            // plotGroupbox
+            // 
+            this.plotGroupbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.plotGroupbox.Controls.Add(this.clearPlotButton);
+            this.plotGroupbox.Location = new System.Drawing.Point(826, 12);
+            this.plotGroupbox.Name = "plotGroupbox";
+            this.plotGroupbox.Size = new System.Drawing.Size(104, 121);
+            this.plotGroupbox.TabIndex = 4;
+            this.plotGroupbox.TabStop = false;
+            this.plotGroupbox.Text = "Plot";
+            // 
+            // clearPlotButton
+            // 
+            this.clearPlotButton.Location = new System.Drawing.Point(7, 20);
+            this.clearPlotButton.Name = "clearPlotButton";
+            this.clearPlotButton.Size = new System.Drawing.Size(41, 23);
+            this.clearPlotButton.TabIndex = 0;
+            this.clearPlotButton.Text = "Clear";
+            this.clearPlotButton.UseVisualStyleBackColor = true;
+            this.clearPlotButton.Click += new System.EventHandler(this.clearPlotButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 378);
+            this.ClientSize = new System.Drawing.Size(942, 378);
+            this.Controls.Add(this.plotGroupbox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.pidControlGroupbox);
@@ -270,6 +359,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.refreshButton)).EndInit();
+            this.plotGroupbox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -293,6 +383,14 @@
         private System.Windows.Forms.ListBox comPortList;
         private System.Windows.Forms.Button connectButton;
         private System.Windows.Forms.PictureBox refreshButton;
+        private System.Windows.Forms.TextBox setTempDisplay;
+        private System.Windows.Forms.TextBox actualTempDisplay;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label setTempLabel;
+        private System.Windows.Forms.GroupBox plotGroupbox;
+        private System.Windows.Forms.Button clearPlotButton;
     }
 }
 

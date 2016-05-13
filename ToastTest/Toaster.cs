@@ -30,7 +30,7 @@ namespace ToastTest
 
         public void Initialize(string comPortName)
         {
-            comPort = new SerialPort("COM13", 9600, Parity.None, 8, StopBits.One);
+            comPort = new SerialPort(comPortName, 9600, Parity.None, 8, StopBits.One);
             comPort.ReadTimeout = 500;
             comPort.WriteTimeout = 500;
             comPort.Open();

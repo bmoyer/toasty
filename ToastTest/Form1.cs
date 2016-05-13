@@ -24,6 +24,8 @@ namespace ToastTest
             //chart1.Series["Oven Temp"].Points.AddY(DateTime.Now.Ticks % 20);
             if (toaster.IsConnected())
             {
+                setTempDisplay.Text = toaster.GetSetTemperature().ToString();
+                actualTempDisplay.Text = toaster.GetActualTemperature().ToString();
                 chart1.Series["Set Point"].Points.AddY(toaster.GetSetTemperature());
                 chart1.Series["Oven Temp"].Points.AddY(toaster.GetActualTemperature());
             }
@@ -118,5 +120,10 @@ namespace ToastTest
             }
         }
 
+        private void clearPlotButton_Click(object sender, EventArgs e)
+        {
+            chart1.Series["Oven Temp"].Points.Clear();
+            chart1.Series["Set Point"].Points.Clear();
+        }
     }
 }
