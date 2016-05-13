@@ -1,0 +1,298 @@
+﻿namespace ToastTest
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.tempControlGroupbox = new System.Windows.Forms.GroupBox();
+            this.degreesLabel = new System.Windows.Forms.Label();
+            this.tempNumBox = new System.Windows.Forms.NumericUpDown();
+            this.setTempButton = new System.Windows.Forms.Button();
+            this.pidControlGroupbox = new System.Windows.Forms.GroupBox();
+            this.kdLabel = new System.Windows.Forms.Label();
+            this.kiLabel = new System.Windows.Forms.Label();
+            this.kpLabel = new System.Windows.Forms.Label();
+            this.kdNumBox = new System.Windows.Forms.NumericUpDown();
+            this.kiNumBox = new System.Windows.Forms.NumericUpDown();
+            this.kpNumBox = new System.Windows.Forms.NumericUpDown();
+            this.setPidButton = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.refreshButton = new System.Windows.Forms.PictureBox();
+            this.connectButton = new System.Windows.Forms.Button();
+            this.comPortList = new System.Windows.Forms.ListBox();
+            this.tempControlGroupbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tempNumBox)).BeginInit();
+            this.pidControlGroupbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kdNumBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kiNumBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kpNumBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshButton)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // tempControlGroupbox
+            // 
+            this.tempControlGroupbox.Controls.Add(this.degreesLabel);
+            this.tempControlGroupbox.Controls.Add(this.tempNumBox);
+            this.tempControlGroupbox.Controls.Add(this.setTempButton);
+            this.tempControlGroupbox.Location = new System.Drawing.Point(12, 12);
+            this.tempControlGroupbox.Name = "tempControlGroupbox";
+            this.tempControlGroupbox.Size = new System.Drawing.Size(104, 79);
+            this.tempControlGroupbox.TabIndex = 0;
+            this.tempControlGroupbox.TabStop = false;
+            this.tempControlGroupbox.Text = "Temperature";
+            // 
+            // degreesLabel
+            // 
+            this.degreesLabel.AutoSize = true;
+            this.degreesLabel.Location = new System.Drawing.Point(58, 22);
+            this.degreesLabel.Name = "degreesLabel";
+            this.degreesLabel.Size = new System.Drawing.Size(18, 13);
+            this.degreesLabel.TabIndex = 2;
+            this.degreesLabel.Text = "°C";
+            // 
+            // tempNumBox
+            // 
+            this.tempNumBox.DecimalPlaces = 1;
+            this.tempNumBox.Location = new System.Drawing.Point(9, 20);
+            this.tempNumBox.Name = "tempNumBox";
+            this.tempNumBox.Size = new System.Drawing.Size(43, 20);
+            this.tempNumBox.TabIndex = 1;
+            // 
+            // setTempButton
+            // 
+            this.setTempButton.Location = new System.Drawing.Point(9, 46);
+            this.setTempButton.Name = "setTempButton";
+            this.setTempButton.Size = new System.Drawing.Size(43, 23);
+            this.setTempButton.TabIndex = 0;
+            this.setTempButton.Text = "Set";
+            this.setTempButton.UseVisualStyleBackColor = true;
+            this.setTempButton.Click += new System.EventHandler(this.setTempButton_Click);
+            // 
+            // pidControlGroupbox
+            // 
+            this.pidControlGroupbox.Controls.Add(this.kdLabel);
+            this.pidControlGroupbox.Controls.Add(this.kiLabel);
+            this.pidControlGroupbox.Controls.Add(this.kpLabel);
+            this.pidControlGroupbox.Controls.Add(this.kdNumBox);
+            this.pidControlGroupbox.Controls.Add(this.kiNumBox);
+            this.pidControlGroupbox.Controls.Add(this.kpNumBox);
+            this.pidControlGroupbox.Controls.Add(this.setPidButton);
+            this.pidControlGroupbox.Location = new System.Drawing.Point(12, 97);
+            this.pidControlGroupbox.Name = "pidControlGroupbox";
+            this.pidControlGroupbox.Size = new System.Drawing.Size(104, 121);
+            this.pidControlGroupbox.TabIndex = 1;
+            this.pidControlGroupbox.TabStop = false;
+            this.pidControlGroupbox.Text = "PID Control";
+            // 
+            // kdLabel
+            // 
+            this.kdLabel.AutoSize = true;
+            this.kdLabel.Location = new System.Drawing.Point(6, 70);
+            this.kdLabel.Name = "kdLabel";
+            this.kdLabel.Size = new System.Drawing.Size(23, 13);
+            this.kdLabel.TabIndex = 7;
+            this.kdLabel.Text = "Kd:";
+            // 
+            // kiLabel
+            // 
+            this.kiLabel.AutoSize = true;
+            this.kiLabel.Location = new System.Drawing.Point(6, 44);
+            this.kiLabel.Name = "kiLabel";
+            this.kiLabel.Size = new System.Drawing.Size(19, 13);
+            this.kiLabel.TabIndex = 6;
+            this.kiLabel.Text = "Ki:";
+            // 
+            // kpLabel
+            // 
+            this.kpLabel.AutoSize = true;
+            this.kpLabel.Location = new System.Drawing.Point(6, 22);
+            this.kpLabel.Name = "kpLabel";
+            this.kpLabel.Size = new System.Drawing.Size(23, 13);
+            this.kpLabel.TabIndex = 5;
+            this.kpLabel.Text = "Kp:";
+            // 
+            // kdNumBox
+            // 
+            this.kdNumBox.Location = new System.Drawing.Point(32, 68);
+            this.kdNumBox.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.kdNumBox.Name = "kdNumBox";
+            this.kdNumBox.Size = new System.Drawing.Size(44, 20);
+            this.kdNumBox.TabIndex = 4;
+            // 
+            // kiNumBox
+            // 
+            this.kiNumBox.Location = new System.Drawing.Point(31, 42);
+            this.kiNumBox.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.kiNumBox.Name = "kiNumBox";
+            this.kiNumBox.Size = new System.Drawing.Size(45, 20);
+            this.kiNumBox.TabIndex = 3;
+            // 
+            // kpNumBox
+            // 
+            this.kpNumBox.Location = new System.Drawing.Point(31, 19);
+            this.kpNumBox.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.kpNumBox.Name = "kpNumBox";
+            this.kpNumBox.Size = new System.Drawing.Size(45, 20);
+            this.kpNumBox.TabIndex = 2;
+            // 
+            // setPidButton
+            // 
+            this.setPidButton.Location = new System.Drawing.Point(9, 94);
+            this.setPidButton.Name = "setPidButton";
+            this.setPidButton.Size = new System.Drawing.Size(43, 23);
+            this.setPidButton.TabIndex = 1;
+            this.setPidButton.Text = "Set";
+            this.setPidButton.UseVisualStyleBackColor = true;
+            this.setPidButton.Click += new System.EventHandler(this.setPidButton_Click);
+            // 
+            // chart1
+            // 
+            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(122, 12);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(436, 354);
+            this.chart1.TabIndex = 2;
+            this.chart1.Text = "chart1";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.refreshButton);
+            this.groupBox1.Controls.Add(this.connectButton);
+            this.groupBox1.Controls.Add(this.comPortList);
+            this.groupBox1.Location = new System.Drawing.Point(12, 224);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(104, 141);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "COM Port";
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.Image = global::ToastTest.Properties.Resources.refresh_button1;
+            this.refreshButton.InitialImage = null;
+            this.refreshButton.Location = new System.Drawing.Point(76, 95);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(22, 22);
+            this.refreshButton.TabIndex = 3;
+            this.refreshButton.TabStop = false;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
+            // connectButton
+            // 
+            this.connectButton.Location = new System.Drawing.Point(6, 94);
+            this.connectButton.Name = "connectButton";
+            this.connectButton.Size = new System.Drawing.Size(70, 23);
+            this.connectButton.TabIndex = 2;
+            this.connectButton.Text = "Connect";
+            this.connectButton.UseVisualStyleBackColor = true;
+            this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
+            // 
+            // comPortList
+            // 
+            this.comPortList.FormattingEnabled = true;
+            this.comPortList.Location = new System.Drawing.Point(6, 19);
+            this.comPortList.Name = "comPortList";
+            this.comPortList.Size = new System.Drawing.Size(77, 69);
+            this.comPortList.TabIndex = 0;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(570, 378);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.pidControlGroupbox);
+            this.Controls.Add(this.tempControlGroupbox);
+            this.Name = "Form1";
+            this.Text = "ToastGhost";
+            this.tempControlGroupbox.ResumeLayout(false);
+            this.tempControlGroupbox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tempNumBox)).EndInit();
+            this.pidControlGroupbox.ResumeLayout(false);
+            this.pidControlGroupbox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kdNumBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kiNumBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kpNumBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.refreshButton)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox tempControlGroupbox;
+        private System.Windows.Forms.NumericUpDown tempNumBox;
+        private System.Windows.Forms.Button setTempButton;
+        private System.Windows.Forms.GroupBox pidControlGroupbox;
+        private System.Windows.Forms.Button setPidButton;
+        private System.Windows.Forms.Label degreesLabel;
+        private System.Windows.Forms.Label kdLabel;
+        private System.Windows.Forms.Label kiLabel;
+        private System.Windows.Forms.Label kpLabel;
+        private System.Windows.Forms.NumericUpDown kdNumBox;
+        private System.Windows.Forms.NumericUpDown kiNumBox;
+        private System.Windows.Forms.NumericUpDown kpNumBox;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ListBox comPortList;
+        private System.Windows.Forms.Button connectButton;
+        private System.Windows.Forms.PictureBox refreshButton;
+    }
+}
+
