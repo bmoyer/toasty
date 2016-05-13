@@ -17,17 +17,18 @@ namespace ToastTest
     {
         static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
         Toaster toaster = new Toaster();
-        
+
+        const String OVEN_TEMP_SERIES = "Oven Temp";
+        const String SETPOINT_TEMP_SERIES = "Set Point";
 
         private void UpdateGUI(Object myObject, EventArgs myEventArgs)
         {
-            //chart1.Series["Oven Temp"].Points.AddY(DateTime.Now.Ticks % 20);
             if (toaster.IsConnected())
             {
                 setTempDisplay.Text = toaster.GetSetTemperature().ToString();
                 actualTempDisplay.Text = toaster.GetActualTemperature().ToString();
-                chart1.Series["Set Point"].Points.AddY(toaster.GetSetTemperature());
-                chart1.Series["Oven Temp"].Points.AddY(toaster.GetActualTemperature());
+                chart1.Series[SETPOINT_TEMP_SERIES].Points.AddY(toaster.GetSetTemperature());
+                chart1.Series[OVEN_TEMP_SERIES].Points.AddY(toaster.GetActualTemperature());
             }
         }
 
@@ -47,7 +48,7 @@ namespace ToastTest
             chart1.Series.Clear();
 
             // Create oven temp
-            Series set1 = new Series("Oven Temp");
+            Series set1 = new Series(OVEN_TEMP_SERIES);
             set1.BorderWidth = 2;
             set1.BorderDashStyle = ChartDashStyle.Solid;
             set1.ChartType = SeriesChartType.FastLine;
@@ -56,7 +57,7 @@ namespace ToastTest
             chart1.Invalidate();
 
             // Create set point
-            Series set2 = new Series("Set Point");
+            Series set2 = new Series(SETPOINT_TEMP_SERIES);
             set2.BorderWidth = 2;
             set2.BorderDashStyle = ChartDashStyle.Solid;
             set2.ChartType = SeriesChartType.FastLine;
@@ -78,10 +79,6 @@ namespace ToastTest
         {
             toaster.SetTemperature((float)tempNumBox.Value);
             Console.WriteLine("Set Temp: " + toaster.GetSetTemperature());
-            foreach (string s in SerialPort.GetPortNames())
-            {
-                Console.WriteLine(s);
-            }
         }
 
         private void setPidButton_Click(object sender, EventArgs e)
@@ -122,8 +119,14 @@ namespace ToastTest
 
         private void clearPlotButton_Click(object sender, EventArgs e)
         {
-            chart1.Series["Oven Temp"].Points.Clear();
-            chart1.Series["Set Point"].Points.Clear();
+            chart1.Series[OVEN_TEMP_SERIES].Points.Clear();
+            chart1.Series[SETPOINT_TEMP_SERIES].Points.Clear();
+        }
+
+        private void setSamplingRateButton_Click(object sender, EventArgs e)
+        {
+            myTimer.Interval = (int) samplingRateNumBox.Value;
+            toaster.SetSamplingRate((int)samplingRateNumBox.Value / 2);
         }
     }
 }

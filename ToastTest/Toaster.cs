@@ -14,6 +14,7 @@ namespace ToastTest
 
         private float mTempSetPoint = 0;
         private float mLastActualTemp = 0;
+        private int mSamplingFrequency = 500;
 
         // Hardware control methods 
         public void SetTemperature(float degrees) { mTempSetPoint = degrees; }
@@ -27,6 +28,7 @@ namespace ToastTest
         public float GetSetTemperature() { return mTempSetPoint; }
         public float GetActualTemperature() { return mLastActualTemp; }
         public bool IsConnected() { return comPort.IsOpen;  }
+        public void SetSamplingRate(int intervalMs) { mSamplingFrequency = intervalMs; }
 
         public void Initialize(string comPortName)
         {
@@ -62,7 +64,7 @@ namespace ToastTest
                     string message = comPort.ReadLine();
                     Console.WriteLine(message);
                     mLastActualTemp = Int32.Parse(message);
-                    Thread.Sleep(500);
+                    Thread.Sleep(mSamplingFrequency);
                 }
                 catch (Exception) { Console.WriteLine("Timeout!");  return; }
             }
