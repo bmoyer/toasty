@@ -77,8 +77,10 @@ namespace ToastTest
 
         private void setTempButton_Click(object sender, EventArgs e)
         {
-            toaster.SetTemperature((float)tempNumBox.Value);
-            Console.WriteLine("Set Temp: " + toaster.GetSetTemperature());
+            if (toaster.IsConnected())
+            {
+                toaster.SetTemperature((float)tempNumBox.Value);
+            }
         }
 
         private void setPidButton_Click(object sender, EventArgs e)

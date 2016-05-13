@@ -17,7 +17,7 @@ namespace ToastTest
         private int mSamplingFrequency = 500;
 
         // Hardware control methods 
-        public void SetTemperature(float degrees) { mTempSetPoint = degrees; }
+        public void SetTemperature(float degrees) { mTempSetPoint = degrees; SerialWrite("SET " + degrees.ToString()); }
 
         // PID setting methods
         public void SetKp(int Kp) { SerialWrite("P " + Kp.ToString()); }
