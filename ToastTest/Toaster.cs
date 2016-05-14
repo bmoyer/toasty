@@ -39,11 +39,6 @@ namespace ToastTest
 
             Thread readThread = new Thread(Read);
             readThread.Start();
-
-            /*
-            readThread.Join();
-            comPort.Close();
-            */
         }
 
         public void Disconnect()
@@ -60,7 +55,7 @@ namespace ToastTest
             {
                 try
                 {
-                    SerialWrite("RANDOM");
+                    SerialWrite("TEMP?");
                     string message = comPort.ReadLine();
                     Console.WriteLine(message);
                     mLastActualTemp = Int32.Parse(message);
