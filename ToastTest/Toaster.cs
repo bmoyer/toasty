@@ -57,7 +57,6 @@ namespace ToastTest
                 {
                     SerialWrite("TEMP?");
                     string message = comPort.ReadLine();
-                    Console.WriteLine(message);
                     mLastActualTemp = Int32.Parse(message);
                     Thread.Sleep(mSamplingFrequency);
                 }
@@ -184,7 +183,6 @@ namespace ToastTest
         public void SerialWrite(String data)
         {
             comPort.WriteLine(data);
-            Thread.Sleep(50);
         }
     }
 }

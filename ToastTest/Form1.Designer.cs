@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tempControlGroupbox = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.setTempLabel = new System.Windows.Forms.Label();
@@ -55,10 +55,12 @@
             this.connectButton = new System.Windows.Forms.Button();
             this.comPortList = new System.Windows.Forms.ListBox();
             this.plotGroupbox = new System.Windows.Forms.GroupBox();
-            this.clearPlotButton = new System.Windows.Forms.Button();
-            this.samplingRateLabel = new System.Windows.Forms.Label();
-            this.setSamplingRateButton = new System.Windows.Forms.Button();
             this.samplingRateNumBox = new System.Windows.Forms.NumericUpDown();
+            this.setSamplingRateButton = new System.Windows.Forms.Button();
+            this.samplingRateLabel = new System.Windows.Forms.Label();
+            this.clearPlotButton = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.timerButton = new System.Windows.Forms.ToolStripButton();
             this.tempControlGroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tempNumBox)).BeginInit();
             this.pidControlGroupbox.SuspendLayout();
@@ -70,6 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.refreshButton)).BeginInit();
             this.plotGroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samplingRateNumBox)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tempControlGroupbox
@@ -83,7 +86,7 @@
             this.tempControlGroupbox.Controls.Add(this.degreesLabel);
             this.tempControlGroupbox.Controls.Add(this.tempNumBox);
             this.tempControlGroupbox.Controls.Add(this.setTempButton);
-            this.tempControlGroupbox.Location = new System.Drawing.Point(12, 12);
+            this.tempControlGroupbox.Location = new System.Drawing.Point(12, 29);
             this.tempControlGroupbox.Name = "tempControlGroupbox";
             this.tempControlGroupbox.Size = new System.Drawing.Size(104, 91);
             this.tempControlGroupbox.TabIndex = 0;
@@ -183,7 +186,7 @@
             this.pidControlGroupbox.Controls.Add(this.kiNumBox);
             this.pidControlGroupbox.Controls.Add(this.kpNumBox);
             this.pidControlGroupbox.Controls.Add(this.setPidButton);
-            this.pidControlGroupbox.Location = new System.Drawing.Point(12, 106);
+            this.pidControlGroupbox.Location = new System.Drawing.Point(12, 123);
             this.pidControlGroupbox.Name = "pidControlGroupbox";
             this.pidControlGroupbox.Size = new System.Drawing.Size(104, 121);
             this.pidControlGroupbox.TabIndex = 1;
@@ -268,18 +271,18 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart1.Legends.Add(legend6);
-            this.chart1.Location = new System.Drawing.Point(122, 12);
+            chartArea10.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea10);
+            legend10.Name = "Legend1";
+            this.chart1.Legends.Add(legend10);
+            this.chart1.Location = new System.Drawing.Point(122, 29);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chart1.Series.Add(series6);
-            this.chart1.Size = new System.Drawing.Size(698, 357);
+            series10.ChartArea = "ChartArea1";
+            series10.Legend = "Legend1";
+            series10.Name = "Series1";
+            this.chart1.Series.Add(series10);
+            this.chart1.Size = new System.Drawing.Size(698, 526);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
             // 
@@ -288,7 +291,7 @@
             this.groupBox1.Controls.Add(this.refreshButton);
             this.groupBox1.Controls.Add(this.connectButton);
             this.groupBox1.Controls.Add(this.comPortList);
-            this.groupBox1.Location = new System.Drawing.Point(12, 233);
+            this.groupBox1.Location = new System.Drawing.Point(12, 250);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(104, 136);
             this.groupBox1.TabIndex = 3;
@@ -331,41 +334,12 @@
             this.plotGroupbox.Controls.Add(this.setSamplingRateButton);
             this.plotGroupbox.Controls.Add(this.samplingRateLabel);
             this.plotGroupbox.Controls.Add(this.clearPlotButton);
-            this.plotGroupbox.Location = new System.Drawing.Point(826, 12);
+            this.plotGroupbox.Location = new System.Drawing.Point(826, 29);
             this.plotGroupbox.Name = "plotGroupbox";
             this.plotGroupbox.Size = new System.Drawing.Size(104, 121);
             this.plotGroupbox.TabIndex = 4;
             this.plotGroupbox.TabStop = false;
             this.plotGroupbox.Text = "Plot";
-            // 
-            // clearPlotButton
-            // 
-            this.clearPlotButton.Location = new System.Drawing.Point(0, 71);
-            this.clearPlotButton.Name = "clearPlotButton";
-            this.clearPlotButton.Size = new System.Drawing.Size(62, 23);
-            this.clearPlotButton.TabIndex = 0;
-            this.clearPlotButton.Text = "Clear Plot";
-            this.clearPlotButton.UseVisualStyleBackColor = true;
-            this.clearPlotButton.Click += new System.EventHandler(this.clearPlotButton_Click);
-            // 
-            // samplingRateLabel
-            // 
-            this.samplingRateLabel.AutoSize = true;
-            this.samplingRateLabel.Location = new System.Drawing.Point(2, 22);
-            this.samplingRateLabel.Name = "samplingRateLabel";
-            this.samplingRateLabel.Size = new System.Drawing.Size(96, 13);
-            this.samplingRateLabel.TabIndex = 8;
-            this.samplingRateLabel.Text = "Sampling rate (ms):";
-            // 
-            // setSamplingRateButton
-            // 
-            this.setSamplingRateButton.Location = new System.Drawing.Point(55, 38);
-            this.setSamplingRateButton.Name = "setSamplingRateButton";
-            this.setSamplingRateButton.Size = new System.Drawing.Size(32, 23);
-            this.setSamplingRateButton.TabIndex = 10;
-            this.setSamplingRateButton.Text = "Set";
-            this.setSamplingRateButton.UseVisualStyleBackColor = true;
-            this.setSamplingRateButton.Click += new System.EventHandler(this.setSamplingRateButton_Click);
             // 
             // samplingRateNumBox
             // 
@@ -394,17 +368,70 @@
             0,
             0});
             // 
+            // setSamplingRateButton
+            // 
+            this.setSamplingRateButton.Location = new System.Drawing.Point(55, 38);
+            this.setSamplingRateButton.Name = "setSamplingRateButton";
+            this.setSamplingRateButton.Size = new System.Drawing.Size(32, 23);
+            this.setSamplingRateButton.TabIndex = 10;
+            this.setSamplingRateButton.Text = "Set";
+            this.setSamplingRateButton.UseVisualStyleBackColor = true;
+            this.setSamplingRateButton.Click += new System.EventHandler(this.setSamplingRateButton_Click);
+            // 
+            // samplingRateLabel
+            // 
+            this.samplingRateLabel.AutoSize = true;
+            this.samplingRateLabel.Location = new System.Drawing.Point(2, 22);
+            this.samplingRateLabel.Name = "samplingRateLabel";
+            this.samplingRateLabel.Size = new System.Drawing.Size(96, 13);
+            this.samplingRateLabel.TabIndex = 8;
+            this.samplingRateLabel.Text = "Sampling rate (ms):";
+            // 
+            // clearPlotButton
+            // 
+            this.clearPlotButton.Location = new System.Drawing.Point(0, 71);
+            this.clearPlotButton.Name = "clearPlotButton";
+            this.clearPlotButton.Size = new System.Drawing.Size(62, 23);
+            this.clearPlotButton.TabIndex = 0;
+            this.clearPlotButton.Text = "Clear Plot";
+            this.clearPlotButton.UseVisualStyleBackColor = true;
+            this.clearPlotButton.Click += new System.EventHandler(this.clearPlotButton_Click);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.timerButton});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(942, 25);
+            this.toolStrip1.TabIndex = 5;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // timerButton
+            // 
+            this.timerButton.AutoSize = false;
+            this.timerButton.Image = global::ToastTest.Properties.Resources.Time_Timer_icon;
+            this.timerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.timerButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.timerButton.Name = "timerButton";
+            this.timerButton.Size = new System.Drawing.Size(55, 22);
+            this.timerButton.Text = "00:00";
+            this.timerButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.timerButton.ToolTipText = "Hold Temperature Timer";
+            this.timerButton.Click += new System.EventHandler(this.timerButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 378);
+            this.ClientSize = new System.Drawing.Size(942, 567);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.plotGroupbox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.pidControlGroupbox);
             this.Controls.Add(this.tempControlGroupbox);
-            this.MinimumSize = new System.Drawing.Size(0, 416);
+            this.MinimumSize = new System.Drawing.Size(16, 416);
             this.Name = "Form1";
             this.Text = "ToastGhost";
             this.tempControlGroupbox.ResumeLayout(false);
@@ -421,7 +448,10 @@
             this.plotGroupbox.ResumeLayout(false);
             this.plotGroupbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samplingRateNumBox)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -455,6 +485,8 @@
         private System.Windows.Forms.Button setSamplingRateButton;
         private System.Windows.Forms.Label samplingRateLabel;
         private System.Windows.Forms.NumericUpDown samplingRateNumBox;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton timerButton;
     }
 }
 

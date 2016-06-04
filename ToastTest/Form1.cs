@@ -15,11 +15,14 @@ namespace ToastTest
 {
     public partial class Form1 : Form
     {
-        static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
+        static System.Windows.Forms.Timer updateGuiTimer = new System.Windows.Forms.Timer();
+        static System.Windows.Forms.Timer countdownTimer = new System.Windows.Forms.Timer();
         Toaster toaster = new Toaster();
 
         const String OVEN_TEMP_SERIES = "Oven Temp";
         const String SETPOINT_TEMP_SERIES = "Set Point";
+
+        int mTimerSecondsLeft = 0;
 
         private void UpdateGUI(Object myObject, EventArgs myEventArgs)
         {
@@ -32,15 +35,32 @@ namespace ToastTest
             }
         }
 
+        private void UpdateCountdownTimer(Object myObject, EventArgs myEventArgs)
+        {
+            if (mTimerSecondsLeft <= 0)
+            {
+                countdownTimer.Stop();
+            }
+            else
+            {
+                mTimerSecondsLeft -= 1;
+                timerButton.Text = Math.Floor((double)(mTimerSecondsLeft / 60)).ToString().PadLeft(2, '0') + ":" +
+                (mTimerSecondsLeft % 60).ToString().PadLeft(2, '0');
+            }
+        }
+
         public Form1()
         {
             InitializeComponent();
             InitializeCOMPortList();
             InitializeChart();
 
-            myTimer.Tick += new EventHandler(UpdateGUI);
-            myTimer.Interval = 500;
-            myTimer.Start();
+            updateGuiTimer.Tick += new EventHandler(UpdateGUI);
+            updateGuiTimer.Interval = 500;
+            updateGuiTimer.Start();
+
+            countdownTimer.Tick += new EventHandler(UpdateCountdownTimer);
+            countdownTimer.Interval = 1000;
         }
 
         private void InitializeChart()
@@ -75,6 +95,12 @@ namespace ToastTest
             }
         }
 
+        private void ClearChart()
+        {
+            chart1.Series[OVEN_TEMP_SERIES].Points.Clear();
+            chart1.Series[SETPOINT_TEMP_SERIES].Points.Clear();
+        }
+
         private void setTempButton_Click(object sender, EventArgs e)
         {
             if (toaster.IsConnected())
@@ -85,7 +111,7 @@ namespace ToastTest
 
         private void setPidButton_Click(object sender, EventArgs e)
         {
-            if(toaster.IsConnected())
+            if (toaster.IsConnected())
             {
                 toaster.SetKp((int)kpNumBox.Value);
                 toaster.SetKi((int)kiNumBox.Value);
@@ -95,7 +121,7 @@ namespace ToastTest
 
         private void connectButton_Click(object sender, EventArgs e)
         {
-            if(toaster.IsConnected())
+            if (toaster.IsConnected())
             {
                 toaster.Disconnect();
                 comPortList.Enabled = true;
@@ -113,7 +139,7 @@ namespace ToastTest
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            if(!toaster.IsConnected())
+            if (!toaster.IsConnected())
             {
                 InitializeCOMPortList();
             }
@@ -121,19 +147,41 @@ namespace ToastTest
 
         private void clearPlotButton_Click(object sender, EventArgs e)
         {
-            chart1.Series[OVEN_TEMP_SERIES].Points.Clear();
-            chart1.Series[SETPOINT_TEMP_SERIES].Points.Clear();
+            ClearChart();
         }
 
         private void setSamplingRateButton_Click(object sender, EventArgs e)
         {
-            myTimer.Interval = (int) samplingRateNumBox.Value;
+            updateGuiTimer.Interval = (int)samplingRateNumBox.Value;
             toaster.SetSamplingRate((int)samplingRateNumBox.Value / 2);
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             toaster.Disconnect();
+        }
+
+        private void timerButton_Click(object sender, EventArgs e)
+        {
+            if (countdownTimer.Enabled)
+            {
+                countdownTimer.Stop();
+                timerButton.Text = "00:00";
+            }
+            else
+            {
+                promptUserStartTimer();
+            }
+        }
+
+        private void promptUserStartTimer()
+        {
+            TimerSetupForm t = new TimerSetupForm();
+            if (t.ShowDialog(this) == DialogResult.OK)
+            {
+                mTimerSecondsLeft = t.SecondsOnTimer;
+                countdownTimer.Start();
+            }
         }
     }
 }
