@@ -40,6 +40,7 @@ namespace ToastTest
             if (mTimerSecondsLeft <= 0)
             {
                 countdownTimer.Stop();
+                MessageBox.Show("The timer has run out.", "Time's up!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {

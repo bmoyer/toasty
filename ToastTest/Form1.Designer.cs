@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tempControlGroupbox = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.setTempLabel = new System.Windows.Forms.Label();
@@ -51,7 +51,6 @@
             this.setPidButton = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.refreshButton = new System.Windows.Forms.PictureBox();
             this.connectButton = new System.Windows.Forms.Button();
             this.comPortList = new System.Windows.Forms.ListBox();
             this.plotGroupbox = new System.Windows.Forms.GroupBox();
@@ -61,6 +60,7 @@
             this.clearPlotButton = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.timerButton = new System.Windows.Forms.ToolStripButton();
+            this.refreshButton = new System.Windows.Forms.PictureBox();
             this.tempControlGroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tempNumBox)).BeginInit();
             this.pidControlGroupbox.SuspendLayout();
@@ -69,10 +69,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.kpNumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.refreshButton)).BeginInit();
             this.plotGroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samplingRateNumBox)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshButton)).BeginInit();
             this.SuspendLayout();
             // 
             // tempControlGroupbox
@@ -86,7 +86,7 @@
             this.tempControlGroupbox.Controls.Add(this.degreesLabel);
             this.tempControlGroupbox.Controls.Add(this.tempNumBox);
             this.tempControlGroupbox.Controls.Add(this.setTempButton);
-            this.tempControlGroupbox.Location = new System.Drawing.Point(12, 29);
+            this.tempControlGroupbox.Location = new System.Drawing.Point(12, 45);
             this.tempControlGroupbox.Name = "tempControlGroupbox";
             this.tempControlGroupbox.Size = new System.Drawing.Size(104, 91);
             this.tempControlGroupbox.TabIndex = 0;
@@ -186,7 +186,7 @@
             this.pidControlGroupbox.Controls.Add(this.kiNumBox);
             this.pidControlGroupbox.Controls.Add(this.kpNumBox);
             this.pidControlGroupbox.Controls.Add(this.setPidButton);
-            this.pidControlGroupbox.Location = new System.Drawing.Point(12, 123);
+            this.pidControlGroupbox.Location = new System.Drawing.Point(12, 139);
             this.pidControlGroupbox.Name = "pidControlGroupbox";
             this.pidControlGroupbox.Size = new System.Drawing.Size(104, 121);
             this.pidControlGroupbox.TabIndex = 1;
@@ -271,18 +271,18 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea10.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea10);
-            legend10.Name = "Legend1";
-            this.chart1.Legends.Add(legend10);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(122, 29);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series10.ChartArea = "ChartArea1";
-            series10.Legend = "Legend1";
-            series10.Name = "Series1";
-            this.chart1.Series.Add(series10);
-            this.chart1.Size = new System.Drawing.Size(698, 526);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(698, 373);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
             // 
@@ -291,23 +291,12 @@
             this.groupBox1.Controls.Add(this.refreshButton);
             this.groupBox1.Controls.Add(this.connectButton);
             this.groupBox1.Controls.Add(this.comPortList);
-            this.groupBox1.Location = new System.Drawing.Point(12, 250);
+            this.groupBox1.Location = new System.Drawing.Point(12, 266);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(104, 136);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "COM Port";
-            // 
-            // refreshButton
-            // 
-            this.refreshButton.Image = global::ToastTest.Properties.Resources.refresh_button1;
-            this.refreshButton.InitialImage = null;
-            this.refreshButton.Location = new System.Drawing.Point(76, 95);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(22, 22);
-            this.refreshButton.TabIndex = 3;
-            this.refreshButton.TabStop = false;
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // connectButton
             // 
@@ -334,7 +323,7 @@
             this.plotGroupbox.Controls.Add(this.setSamplingRateButton);
             this.plotGroupbox.Controls.Add(this.samplingRateLabel);
             this.plotGroupbox.Controls.Add(this.clearPlotButton);
-            this.plotGroupbox.Location = new System.Drawing.Point(826, 29);
+            this.plotGroupbox.Location = new System.Drawing.Point(826, 45);
             this.plotGroupbox.Name = "plotGroupbox";
             this.plotGroupbox.Size = new System.Drawing.Size(104, 121);
             this.plotGroupbox.TabIndex = 4;
@@ -403,28 +392,40 @@
             this.timerButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(942, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(942, 43);
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // timerButton
             // 
             this.timerButton.AutoSize = false;
+            this.timerButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timerButton.Image = global::ToastTest.Properties.Resources.Time_Timer_icon;
             this.timerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.timerButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.timerButton.Name = "timerButton";
-            this.timerButton.Size = new System.Drawing.Size(55, 22);
+            this.timerButton.Size = new System.Drawing.Size(70, 40);
             this.timerButton.Text = "00:00";
             this.timerButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.timerButton.ToolTipText = "Hold Temperature Timer";
+            this.timerButton.ToolTipText = "Countdown Timer";
             this.timerButton.Click += new System.EventHandler(this.timerButton_Click);
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.Image = global::ToastTest.Properties.Resources.refresh_button1;
+            this.refreshButton.InitialImage = null;
+            this.refreshButton.Location = new System.Drawing.Point(76, 95);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(22, 22);
+            this.refreshButton.TabIndex = 3;
+            this.refreshButton.TabStop = false;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 567);
+            this.ClientSize = new System.Drawing.Size(942, 413);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.plotGroupbox);
             this.Controls.Add(this.groupBox1);
@@ -444,12 +445,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.kpNumBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.refreshButton)).EndInit();
             this.plotGroupbox.ResumeLayout(false);
             this.plotGroupbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.samplingRateNumBox)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.refreshButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
