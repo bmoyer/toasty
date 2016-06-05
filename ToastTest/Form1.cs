@@ -84,6 +84,54 @@ namespace ToastTest
             set2.Color = Color.HotPink;
             chart1.Series.Add(set2);
             chart1.Invalidate();
+
+            chart1.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
+            chart1.MouseWheel += new System.Windows.Forms.MouseEventHandler(chart1_MouseWheel);
+
+            chart1.MouseEnter += chart1_MouseEnter;
+            chart1.MouseLeave += chart1_MouseLeave;
+        }
+
+        void chart1_MouseLeave(object sender, EventArgs e)
+        {
+            if (chart1.Focused)
+                chart1.Parent.Focus();
+        }
+
+        void chart1_MouseEnter(object sender, EventArgs e)
+        {
+            if (!chart1.Focused)
+                chart1.Focus();
+        }
+
+
+        private void chart1_MouseWheel(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                if (e.Delta < 0)
+                {
+                    chart1.ChartAreas[0].AxisX.ScaleView.ZoomReset();
+                    chart1.ChartAreas[0].AxisY.ScaleView.ZoomReset();
+                }
+
+                if (e.Delta > 0)
+                {
+                    double xMin = chart1.ChartAreas[0].AxisX.ScaleView.ViewMinimum;
+                    double xMax = chart1.ChartAreas[0].AxisX.ScaleView.ViewMaximum;
+                    double yMin = chart1.ChartAreas[0].AxisY.ScaleView.ViewMinimum;
+                    double yMax = chart1.ChartAreas[0].AxisY.ScaleView.ViewMaximum;
+
+                    double posXStart = chart1.ChartAreas[0].AxisX.PixelPositionToValue(e.Location.X) - (xMax - xMin) / 4;
+                    double posXFinish = chart1.ChartAreas[0].AxisX.PixelPositionToValue(e.Location.X) + (xMax - xMin) / 4;
+                    double posYStart = chart1.ChartAreas[0].AxisY.PixelPositionToValue(e.Location.Y) - (yMax - yMin) / 4;
+                    double posYFinish = chart1.ChartAreas[0].AxisY.PixelPositionToValue(e.Location.Y) + (yMax - yMin) / 4;
+
+                    chart1.ChartAreas[0].AxisX.ScaleView.Zoom(posXStart, posXFinish);
+                    chart1.ChartAreas[0].AxisY.ScaleView.Zoom(posYStart, posYFinish);
+                }
+            }
+            catch { }            
         }
 
         private void InitializeCOMPortList()
