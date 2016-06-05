@@ -40,7 +40,7 @@
             this.button1.Location = new System.Drawing.Point(12, 49);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(64, 23);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 1;
             this.button1.Text = "Set Timer";
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -50,7 +50,7 @@
             this.button2.Location = new System.Drawing.Point(82, 49);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(64, 23);
-            this.button2.TabIndex = 1;
+            this.button2.TabIndex = 2;
             this.button2.Text = "Exit";
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -62,7 +62,7 @@
             this.timeEntryBox.Name = "timeEntryBox";
             this.timeEntryBox.ShowUpDown = true;
             this.timeEntryBox.Size = new System.Drawing.Size(62, 20);
-            this.timeEntryBox.TabIndex = 2;
+            this.timeEntryBox.TabIndex = 0;
             this.timeEntryBox.Value = new System.DateTime(2016, 6, 4, 0, 0, 0, 0);
             this.timeEntryBox.ValueChanged += new System.EventHandler(this.timeEntryBox_ValueChanged);
             // 
