@@ -177,6 +177,7 @@ namespace ToastTest
         private void promptUserStartTimer()
         {
             TimerSetupForm t = new TimerSetupForm();
+            t.StartPosition = FormStartPosition.CenterParent;
             if (t.ShowDialog(this) == DialogResult.OK)
             {
                 mTimerSecondsLeft = t.SecondsOnTimer;
