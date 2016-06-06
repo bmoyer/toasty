@@ -185,5 +185,15 @@ namespace ToastTest
                 countdownTimer.Start();
             }
         }
+
+        private void profilesButton_Click(object sender, EventArgs e)
+        {
+            ProfilesDialog profilesDialog = new ProfilesDialog();
+            profilesDialog.StartPosition = FormStartPosition.CenterParent;
+            if (profilesDialog.ShowDialog(this) == DialogResult.OK)
+            {
+
+            }
+        }
     }
 }
