@@ -51,6 +51,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeatProfile.cs" />
     <Compile Include="ProfilesDialog.cs">
       <SubType>Form</SubType>
     </Compile>
