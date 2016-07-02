@@ -31,8 +31,8 @@
             this.profileList = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.profileTable = new System.Windows.Forms.DataGridView();
-            this.Temperature = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Temperature = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.profileNameEdit = new System.Windows.Forms.TextBox();
             this.renameProfileButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,6 +48,7 @@
             this.profileList.Name = "profileList";
             this.profileList.Size = new System.Drawing.Size(120, 173);
             this.profileList.TabIndex = 0;
+            this.profileList.SelectedIndexChanged += new System.EventHandler(this.profileList_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -65,14 +66,21 @@
             this.profileTable.AllowUserToResizeRows = false;
             this.profileTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.profileTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Temperature,
-            this.Duration});
+            this.Duration,
+            this.Temperature});
             this.profileTable.Location = new System.Drawing.Point(163, 57);
             this.profileTable.Name = "profileTable";
             this.profileTable.RowHeadersVisible = false;
             this.profileTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.profileTable.Size = new System.Drawing.Size(216, 110);
             this.profileTable.TabIndex = 2;
+            // 
+            // Duration
+            // 
+            this.Duration.HeaderText = "Duration (sec)";
+            this.Duration.Name = "Duration";
+            this.Duration.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Duration.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Temperature
             // 
@@ -81,13 +89,6 @@
             this.Temperature.Name = "Temperature";
             this.Temperature.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Temperature.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Duration
-            // 
-            this.Duration.HeaderText = "Duration (sec)";
-            this.Duration.Name = "Duration";
-            this.Duration.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Duration.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // profileNameEdit
             // 
@@ -104,6 +105,7 @@
             this.renameProfileButton.TabIndex = 4;
             this.renameProfileButton.Text = "Rename";
             this.renameProfileButton.UseVisualStyleBackColor = true;
+            this.renameProfileButton.Click += new System.EventHandler(this.renameProfileButton_Click);
             // 
             // label2
             // 
@@ -116,7 +118,7 @@
             // 
             // addNewSaveProfileButton
             // 
-            this.addNewSaveProfileButton.Location = new System.Drawing.Point(163, 181);
+            this.addNewSaveProfileButton.Location = new System.Drawing.Point(163, 177);
             this.addNewSaveProfileButton.Name = "addNewSaveProfileButton";
             this.addNewSaveProfileButton.Size = new System.Drawing.Size(121, 23);
             this.addNewSaveProfileButton.TabIndex = 6;
@@ -126,18 +128,19 @@
             // 
             // removeProfileButton
             // 
-            this.removeProfileButton.Location = new System.Drawing.Point(290, 181);
+            this.removeProfileButton.Location = new System.Drawing.Point(290, 177);
             this.removeProfileButton.Name = "removeProfileButton";
             this.removeProfileButton.Size = new System.Drawing.Size(89, 23);
             this.removeProfileButton.TabIndex = 7;
             this.removeProfileButton.Text = "Remove Profile";
             this.removeProfileButton.UseVisualStyleBackColor = true;
+            this.removeProfileButton.Click += new System.EventHandler(this.removeProfileButton_Click);
             // 
             // ProfilesDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(391, 238);
+            this.ClientSize = new System.Drawing.Size(391, 212);
             this.Controls.Add(this.removeProfileButton);
             this.Controls.Add(this.addNewSaveProfileButton);
             this.Controls.Add(this.label2);
@@ -160,12 +163,12 @@
         private System.Windows.Forms.ListBox profileList;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView profileTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Temperature;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Duration;
         private System.Windows.Forms.TextBox profileNameEdit;
         private System.Windows.Forms.Button renameProfileButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button addNewSaveProfileButton;
         private System.Windows.Forms.Button removeProfileButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Duration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Temperature;
     }
 }
