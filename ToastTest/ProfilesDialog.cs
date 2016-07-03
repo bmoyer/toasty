@@ -149,6 +149,7 @@ namespace ToastTest
         {
             String oldFilepath = GetProfilePath(profileList.SelectedItem.ToString());
             String newFilepath = GetProfilePath(profileNameEdit.Text);
+            if (oldFilepath == newFilepath) { return; }
 
             HeatProfile profile = HeatProfile.LoadFromFile(oldFilepath);
 
