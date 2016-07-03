@@ -92,9 +92,9 @@
             // 
             // profileNameEdit
             // 
-            this.profileNameEdit.Location = new System.Drawing.Point(217, 31);
+            this.profileNameEdit.Location = new System.Drawing.Point(198, 31);
             this.profileNameEdit.Name = "profileNameEdit";
-            this.profileNameEdit.Size = new System.Drawing.Size(81, 20);
+            this.profileNameEdit.Size = new System.Drawing.Size(100, 20);
             this.profileNameEdit.TabIndex = 3;
             // 
             // renameProfileButton
@@ -110,7 +110,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(172, 34);
+            this.label2.Location = new System.Drawing.Point(153, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 5;

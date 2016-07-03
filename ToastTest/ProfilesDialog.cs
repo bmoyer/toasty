@@ -76,27 +76,28 @@ namespace ToastTest
             else
             {
                 SaveProfileToFile(profile, profileNameEdit.Text);
-                LoadProfileList();
             }
         }
 
         private void SaveProfileToFile(HeatProfile profile, String profileName)
         {
-            String filepath = PROFILES_DIRECTORY + Path.DirectorySeparatorChar + profileName + ".txt";
+            String filepath = GetProfilePath(profileName);
             if (!File.Exists(filepath) || DialogResult.Yes == MessageBox.Show("Profile exists. Overwrite?", "Profile Exists", MessageBoxButtons.YesNo))
             {
                 profile.SaveToFile(filepath);
+                ClearProfileInfo();
+                LoadProfileList();
             }
         }
 
         private void DeleteProfile(String profileName)
         {
-            String filepath = PROFILES_DIRECTORY + Path.DirectorySeparatorChar + profileName + ".txt";
+            String filepath = GetProfilePath(profileName);
             if (File.Exists(filepath))
             {
                 File.Delete(filepath);
+                LoadProfileList();
             }
-            LoadProfileList();
         }
 
         private void LoadProfileList()
@@ -132,8 +133,7 @@ namespace ToastTest
             if (profileList.SelectedIndex != -1)
             {
                 String profileName = profileList.SelectedItem.ToString();
-                String filepath = PROFILES_DIRECTORY + Path.DirectorySeparatorChar +
-                    profileName + ".txt";
+                String filepath = GetProfilePath(profileName);
                 HeatProfile profile = HeatProfile.LoadFromFile(filepath);
 
                 profileNameEdit.Text = profileName;
@@ -147,16 +147,27 @@ namespace ToastTest
 
         private void renameProfileButton_Click(object sender, EventArgs e)
         {
-            String profileName = profileList.SelectedItem.ToString();
-            String oldFilepath = PROFILES_DIRECTORY + Path.DirectorySeparatorChar +
+            String oldFilepath = GetProfilePath(profileList.SelectedItem.ToString());
+            String newFilepath = GetProfilePath(profileNameEdit.Text);
+
+            HeatProfile profile = HeatProfile.LoadFromFile(oldFilepath);
+
+            if (!File.Exists(newFilepath) || DialogResult.Yes == MessageBox.Show("Profile exists. Overwrite?", "Profile Exists", MessageBoxButtons.YesNo))
+            {
+                if(File.Exists(newFilepath))
+                {
+                    File.Delete(newFilepath);
+                }
+                System.IO.File.Move(oldFilepath, newFilepath);
+                ClearProfileInfo();
+                LoadProfileList();
+            }
+        }
+
+        private String GetProfilePath(String profileName)
+        {
+            return PROFILES_DIRECTORY + Path.DirectorySeparatorChar +
                 profileName + ".txt";
-            String newFilepath = PROFILES_DIRECTORY + Path.DirectorySeparatorChar +
-                profileNameEdit.Text + ".txt";
-
-            System.IO.File.Move(oldFilepath, newFilepath);
-
-            ClearProfileInfo();
-            LoadProfileList();
         }
     }
 }
